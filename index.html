@@ -232,6 +232,7 @@
   .session-alt{display:block;text-align:center;margin-top:11px;font-size:13px;color:#8a8a8a;text-decoration:none;}
   .session-alt:hover{color:#fff;}
   @media (prefers-reduced-motion:reduce){.num.roll b{animation:none;}}
+  .session-alt2{display:block;text-align:center;margin-top:10px;font-size:12px;color:#6f6f6f;}
 </style>
 <script data-goatcounter="https://fraustocabral.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -306,6 +307,7 @@
       <div class="slot-note" data-en="Shown in your local time" data-pt="No seu horário local" data-it="Nel tuo orario locale">En la hora de tu dispositivo</div>
     </div>
     <button type="button" class="session-cta" id="cal" data-goatcounter-click="calendario"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M12 13v5M9.5 15.5h5"/></svg><span data-en="Add to my calendar" data-pt="Adicionar à minha agenda" data-it="Aggiungi al mio calendario">Agregar a mi calendario</span></button>
+    <a class="session-alt2" href="sesiones.ics" data-goatcounter-click="calendario-archivo" data-en="Other calendar? Download the file" data-pt="Outra agenda? Baixe o arquivo" data-it="Altro calendario? Scarica il file">¿Otro calendario? Descarga el archivo</a>
     <a class="session-alt" data-goatcounter-click="telegram-sesion" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><span data-en="or get the reminder on Telegram" data-pt="ou receba o lembrete no Telegram" data-it="o ricevi il promemoria su Telegram">o recibe el aviso en Telegram</span> →</a>
   </section>
 
@@ -436,17 +438,19 @@ else if(nxt){lv.classList.add("off");lt.textContent=D[0];sd.textContent=dia(nxt)
     v.forEach(function(n,i){var t=(n<10?"0":"")+n,el=cells[i],b=el.querySelector("b");if(b.textContent!==t){el.classList.remove("roll");void el.offsetWidth;b.textContent=t;el.classList.add("roll");}});};
   tick();setInterval(tick,1000);}
 /* calendario: .ics con las 3 sesiones semanales (se repiten cada semana) */
-document.getElementById("cal").addEventListener("click",function(){
-  var z=function(t){return new Date(t).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");},L2=[],first=ups.filter(function(t){return t>Date.now();});
-  if(first.length<3)first=ups;
-  L2.push("BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Frausto Cabral//Sesiones//ES","CALSCALE:GREGORIAN");
-  first.forEach(function(t,i){L2.push("BEGIN:VEVENT","UID:sesion-"+i+"-fraustocabral","DTSTAMP:"+z(Date.now()),"DTSTART:"+z(t),"DURATION:PT2H","RRULE:FREQ=WEEKLY",
-    "SUMMARY:"+D[10],"DESCRIPTION:"+D[11]+" https://t.me/+jMsoFB4hjyw4MTI0","URL:https://t.me/+jMsoFB4hjyw4MTI0",
-    "BEGIN:VALARM","TRIGGER:-PT10M","ACTION:DISPLAY","DESCRIPTION:"+D[10],"END:VALARM","END:VEVENT");});
-  L2.push("END:VCALENDAR");
-  var blob=new Blob([L2.join("\r\n")],{type:"text/calendar;charset=utf-8"}),a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);a.download="sesiones-frausto-cabral.ics";document.body.appendChild(a);a.click();
-  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},1500);});
+/* calendario: abre el calendario del telefono con el evento lleno, solo tocan Guardar */
+(function(){var btn=document.getElementById("cal"),step=0,ua=navigator.userAgent,ios=/iPhone|iPad|iPod|Macintosh/.test(ua)&&!/Android/.test(ua);
+var T={es:["Sesión en vivo · Frausto Cabral","Opera conmigo en vivo. El link llega a la comunidad:","+ Agregar también el jueves","Listo ✓"],
+en:["Live session · Frausto Cabral","Trade with me live. The link goes to the community:","+ Add Thursday too","Done ✓"],
+pt:["Sessão ao vivo · Frausto Cabral","Opere comigo ao vivo. O link chega na comunidade:","+ Adicionar quinta também","Pronto ✓"],
+it:["Sessione in diretta · Frausto Cabral","Opera con me in diretta. Il link arriva nella community:","+ Aggiungi anche giovedì","Fatto ✓"]}[L]||0;
+if(!T)T=["Live session · Frausto Cabral","Trade with me live. The link goes to the community:","+ Add Thursday too","Done ✓"];
+function g(dates,rule){return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(T[0])+"&dates="+dates+"&ctz=America/Mexico_City&recur="+encodeURIComponent("RRULE:"+rule)+"&details="+encodeURIComponent(T[1]+" https://t.me/+jMsoFB4hjyw4MTI0");}
+btn.addEventListener("click",function(){
+  if(ios){location.href="https://frxusto.github.io/cabral-xau/sesiones.ics";return;}
+  var lb=btn.querySelector("span");
+  if(step===0){window.open(g("20261004T200000/20261004T220000","FREQ=WEEKLY;BYDAY=SU,TU"),"_blank");step=1;lb.textContent=T[2];}
+  else{window.open(g("20261008T210000/20261008T230000","FREQ=WEEKLY;BYDAY=TH"),"_blank");step=2;lb.textContent=T[3];}});})();
 document.getElementById("slot-days").innerHTML=ups.map(function(t){return '<span'+(t===nxt||(live&&t<=now)?' class="on"':'')+'>'+new Date(t).toLocaleDateString(D[4],{weekday:"short"}).replace(".","")+" "+hm(t)+'</span>';}).join("");
 /* camino: soy nuevo / ya opero */
 var P="new";try{P=localStorage.getItem("path")||"new";}catch(e){}
