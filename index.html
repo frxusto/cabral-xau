@@ -224,7 +224,7 @@
   .cell{text-align:center;}
   .num{background:linear-gradient(180deg,#1b1b1b 0 50%,#141414 50%);border:1px solid #2a2a2a;border-radius:10px;padding:9px 0 8px;overflow:hidden;position:relative;}
   .num::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#0a0a0a;}
-  .num b{display:block;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:#ff4d4d;}
+  .num b{display:block;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em;background:linear-gradient(180deg,#ffffff 0%,#e6e6e6 45%,#8f8f8f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .num.roll b{animation:roll .35s cubic-bezier(.2,.8,.2,1);}
   @keyframes roll{from{transform:translateY(-60%);opacity:0}to{transform:none;opacity:1}}
   .cell small{display:block;margin-top:5px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#777;}
