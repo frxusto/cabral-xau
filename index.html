@@ -58,7 +58,7 @@
   <h1>Frausto Cabral</h1>
   <p class="handle">@cabral.xau</p>
 
-  <p class="bio">
+  <p class="bio" data-en="8 years in the markets. AMIB Figure 3 certified.<br><br>I have lost entire accounts in one night and built them back. Today I share what the industry won&#39;t tell you in any post.">
     8 años en los mercados. Certificado Figura 3 AMIB.
     <br><br>
     He perdido cuentas completas en una noche y he vuelto a
@@ -69,42 +69,38 @@
   <div class="links">
     <a class="btn primary" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg>
-      Comunidad
+      <span data-en="Community">Comunidad</span>
     </a>
-    <a class="btn" href="#partners">Brokers y fondeo ↓</a>
-    <div class="btn disabled">Recursos <span class="soon">Próximamente</span></div>
+    <a class="btn" href="#partners" data-en="Brokers &amp; funding ↓">Brokers y fondeo ↓</a>
+    <div class="btn disabled"><span data-en="Resources">Recursos</span> <span class="soon" data-en="Coming soon">Próximamente</span></div>
   </div>
 
   <section class="partners" id="partners">
     <div class="eyebrow">Partners</div>
-    <h2>Dónde opero</h2>
+    <h2 data-en="Where I trade">Dónde opero</h2>
     <div class="rule"></div>
 
     <div class="card light">
-      <div class="tag">Bróker · Cuenta propia</div>
+      <div class="tag" data-en="Broker · Own account">Bróker · Cuenta propia</div>
       <div class="logo"><img src="img/fpg.png" alt="FPG Fortune Prime Global"></div>
-      <p class="desc">Operas con tu propio capital. En el mercado desde 2011.</p>
+      <p class="desc" data-en="You trade your own capital. In the market since 2011.">Operas con tu propio capital. En el mercado desde 2011.</p>
       <div class="sponsor">
         <img src="img/acmilan.png" alt="AC Milan">
-        <span>FPG es <strong>Official Online Trading Partner</strong> de AC Milan</span>
+        <span data-en="FPG is <strong>Official Online Trading Partner</strong> of AC Milan">FPG es <strong>Official Online Trading Partner</strong> de AC Milan</span>
       </div>
-      <a class="cta" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2H" target="_blank" rel="noopener sponsored">Abrir cuenta ›</a>
+      <a class="cta" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2H" target="_blank" rel="noopener sponsored" data-en="Open account ›">Abrir cuenta ›</a>
     </div>
 
     <div class="card dark">
-      <div class="tag">Fondeo · Capital de la firma</div>
+      <div class="tag" data-en="Funding · Firm capital">Fondeo · Capital de la firma</div>
       <div class="logo"><svg role="img" aria-label="Solo Clash" viewBox="0 0 300 64" width="220" height="47"><text x="0" y="46" font-family="Comfortaa, sans-serif" font-weight="700" font-size="44" fill="#EDE6D3">Solo</text><path d="M140 6 L122 36 L134 36 L126 58 L148 26 L136 26 Z" fill="#EDE6D3"/><text x="156" y="46" font-family="Comfortaa, sans-serif" font-weight="700" font-size="44" fill="#EDE6D3">Clash</text></svg></div>
-      <p class="desc">Pasas una evaluación y, si la apruebas, operas con capital de la firma. Lo que arriesgas es la cuota, no tus ahorros.</p>
-      <a class="cta" href="https://dashboard.soloclash.com/sign-up?referral_id=fraustocabral" target="_blank" rel="noopener sponsored">Empezar evaluación ›</a>
+      <p class="desc" data-en="Pass an evaluation and, if approved, trade with the firm&#39;s capital. What you risk is the fee, not your savings.">Pasas una evaluación y, si la apruebas, operas con capital de la firma. Lo que arriesgas es la cuota, no tus ahorros.</p>
+      <a class="cta" href="https://dashboard.soloclash.com/sign-up?referral_id=fraustocabral" target="_blank" rel="noopener sponsored" data-en="Start evaluation ›">Empezar evaluación ›</a>
     </div>
 
-    <div class="next"><span>✦ Nuevos partners</span><span>próximamente</span></div>
+    <div class="next"><span data-en="✦ New partners">✦ Nuevos partners</span><span data-en="coming soon">próximamente</span></div>
 
-    <p class="fine">
-      <strong>Para que lo sepas:</strong> si abres cuenta con estos links, me pagan una comisión.
-      No me pagan por que ganes, me pagan por que abras cuenta. Decide con eso encima de la mesa.
-      Operar divisas y CFDs con apalancamiento tiene alto riesgo de pérdida de capital.
-    </p>
+    <p class="fine" data-en="Trading forex and/or CFDs with leverage carries high risk.">Operar divisas y/o CFDs con apalancamiento tiene alto riesgo.</p>
   </section>
 
   <div class="socials">
@@ -115,5 +111,10 @@
 
   <footer>Cabral.xau</footer>
 </div>
+<script>
+(function(){var q=new URLSearchParams(location.search).get("lang");var l=q||(navigator.languages&&navigator.languages[0])||navigator.language||"es";
+if(!/^es/i.test(l)){document.documentElement.lang="en";
+document.querySelectorAll("[data-en]").forEach(function(e){e.innerHTML=e.getAttribute("data-en");});}})();
+</script>
 </body>
 </html>
