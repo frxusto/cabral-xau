@@ -116,7 +116,7 @@
   .faq details p{margin:0;padding:0 16px 15px;font-size:13.5px;line-height:1.55;color:#a5a5a5;}
   .share{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:none;border:1px dashed #3a3a3a;color:#cfcfcf;border-radius:12px;padding:14px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;margin:0 0 30px;transition:border-color .2s,color .2s;}
   .share:hover{border-color:#666;color:#fff;}
-  .live.off i{animation:none;box-shadow:0 0 8px rgba(255,45,45,.55);}
+
   .live.off b{color:var(--dim);}
   #localt{color:#7a7a7a;flex-basis:100%;padding-left:21px;font-size:12.5px;}
   #localt:empty{display:none;}
@@ -193,14 +193,32 @@
   .pro-lead{margin:0 0 16px;font-size:14px;color:#a5a5a5;}
   body[data-path="new"] .only-pro,body[data-path="pro"] .only-new{display:none!important;}
   #rain{opacity:.14;}
-  .avatar{animation:none;}
   .btn.primary::after{animation:shine 1.6s ease-in-out .8s 1;}
   .cards{display:flex;flex-direction:column;}
   body[data-path="new"] .card.dark{order:-1;}
-  .reco{display:flex;flex-direction:column;gap:3px;margin:-6px -6px 16px;padding:10px 12px;border-radius:12px;font-size:12.5px;line-height:1.4;}
-  .reco b{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;}
-  .card.light .reco{background:#0a0a0a;color:#cfcfcf;} .card.light .reco b{color:#fff;}
-  .card.dark .reco{background:#f4f4f4;color:#333;} .card.dark .reco b{color:#0a0a0a;}
+  .card{position:relative;}
+  .reco{display:inline-block;margin:0 0 12px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 9px;line-height:1;}
+  .card.light .reco{background:#0a0a0a;color:#fff;}
+  .card.dark .reco{background:#f4f4f4;color:#0a0a0a;}
+  /* sesion v2 */
+  .live{display:flex;align-items:center;gap:8px;}
+  .live i{width:8px;height:8px;flex-shrink:0;}
+  .live b{display:block;line-height:1;padding-top:1px;}
+  .slot{border:1px solid #262626;background:#0b0b0b;border-radius:14px;padding:14px;margin:0 0 14px;}
+  .slot-main{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  #slot-day{font-size:19px;font-weight:700;letter-spacing:-.01em;}
+  #slot-cd{font-size:13px;font-weight:600;color:#ff6b6b;}
+  .slot-days{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 8px;}
+  .slot-days span{font-size:12px;color:#9a9a9a;border:1px solid #2a2a2a;border-radius:999px;padding:4px 10px;}
+  .slot-days span.on{color:#0a0a0a;background:#f4f4f4;border-color:#f4f4f4;font-weight:700;}
+  .slot-note{font-size:11.5px;color:#666;}
+  .session-cta{justify-content:center;gap:9px;background:var(--fg);color:#0a0a0a;border-color:var(--fg);border-radius:14px;padding:15px;font-size:15px;font-weight:700;}
+  .session-cta:hover{background:#fff;border-color:#fff;}
+  .quick{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:2px;}
+  .quick a{display:flex;align-items:center;gap:7px;text-decoration:none;color:#bdbdbd;font-size:13px;font-weight:600;border:1px solid #2a2a2a;background:rgba(17,17,17,.8);border-radius:999px;padding:8px 13px;transition:border-color .2s,color .2s;}
+  .quick a:hover{color:#fff;border-color:#555;}
+  .quick i{width:7px;height:7px;border-radius:50%;background:#ff2d2d;animation:pulse 1.4s ease-in-out infinite;}
+  .faq{scroll-margin-top:24px;} .session{scroll-margin-top:24px;}
 </style>
 <script data-goatcounter="https://fraustocabral.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -257,14 +275,23 @@
       <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg>
       <span class="stack"><span data-en="Join the community" data-pt="Faça parte da comunidade" data-it="Unisciti alla community">Únete a la comunidad</span><small data-en="Free · Telegram" data-pt="Grátis · Telegram" data-it="Gratis · Telegram">Gratis · Telegram</small></span>
     </a>
+    <nav class="quick">
+      <a href="#sesion"><i></i><span data-en="Live sessions" data-pt="Sessões ao vivo" data-it="Sessioni in diretta">Sesiones en vivo</span></a>
+      <a href="#partners"><span data-en="Where I trade" data-pt="Onde opero" data-it="Dove opero">Dónde opero</span></a>
+      <a href="#faq"><span data-en="FAQ" data-pt="Dúvidas" data-it="Domande">Preguntas</span></a>
+    </nav>
   </div>
 
-  <section class="session">
+  <section class="session" id="sesion">
     <div class="eyebrow live" id="live"><i></i><b id="live-txt" data-en="Live" data-pt="Ao vivo" data-it="In diretta">En vivo</b></div>
     <h2 data-en="Trade with me, live" data-pt="Opere comigo, ao vivo" data-it="Opera con me, in diretta">Opera conmigo en vivo</h2>
     <p class="session-p" data-en="You see how I read the market and make decisions in real time. Free, inside the community." data-pt="Você vê como leio o mercado e tomo decisões em tempo real. Grátis, dentro da comunidade." data-it="Vedi come leggo il mercato e prendo decisioni in tempo reale. Gratis, dentro la community.">Ves cómo leo el mercado y tomo decisiones en tiempo real. Gratis, dentro de la comunidad.</p>
-    <p class="when"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Sun &amp; Tue 8:00 pm · Thu 9:00 pm, Mexico City time" data-pt="Dom e ter 20h · qui 21h, horário da Cidade do México" data-it="Dom e mar ore 20:00 · gio ore 21:00, ora di Città del Messico">Dom y mar 8:00 pm · jue 9:00 pm, hora CDMX</span><span id="localt"></span></p>
-    <a class="session-cta" data-goatcounter-click="telegram-sesion" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><span data-en="Get the session link" data-pt="Receber o link da sessão" data-it="Ricevi il link della sessione">Recibe el link de la sesión</span><span aria-hidden="true">→</span></a>
+    <div class="slot">
+      <div class="slot-main"><span id="slot-day"></span><span id="slot-cd"></span></div>
+      <div class="slot-days" id="slot-days"></div>
+      <div class="slot-note" data-en="Shown in your local time" data-pt="No seu horário local" data-it="Nel tuo orario locale">En la hora de tu dispositivo</div>
+    </div>
+    <a class="session-cta" data-goatcounter-click="telegram-sesion" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span data-en="Notify me when it starts" data-pt="Me avise quando começar" data-it="Avvisami quando inizia">Avísame cuando empiece</span></a>
   </section>
 
   <section class="partners" id="partners">
@@ -281,7 +308,7 @@
 
     <div class="cards">
     <div class="card light">
-      <div class="reco only-pro"><b data-en="Recommended" data-pt="Recomendado" data-it="Consigliato">Recomendada</b><span data-en="Your capital, no evaluation rules. ECN if you trade volume." data-pt="Seu capital, sem regras de avaliação. ECN se você opera volume." data-it="Il tuo capitale, senza regole di valutazione. ECN se fai volumi.">Tu capital, sin reglas de evaluación. ECN si haces volumen.</span></div>
+      <div class="reco only-pro"><span data-en="★ Recommended" data-pt="★ Recomendado" data-it="★ Consigliato">★ Recomendada</span></div>
       <div class="tag" data-en="Broker · Own account" data-pt="Corretora · Conta própria" data-it="Broker · Conto proprio">Bróker · Cuenta propia</div>
       <div class="logo"><img src="img/fpg.png" alt="FPG Fortune Prime Global"></div>
       <p class="desc" data-en="You trade your own capital. In the market since 2011." data-pt="Você opera com seu próprio capital. No mercado desde 2011." data-it="Operi con il tuo capitale. Sul mercato dal 2011.">Operas con tu propio capital. En el mercado desde 2011.</p>
@@ -293,7 +320,7 @@
     </div>
 
     <div class="card dark">
-      <div class="reco only-new"><b data-en="Recommended to start" data-pt="Recomendado para começar" data-it="Consigliato per iniziare">Recomendada para empezar</b><span data-en="You risk the fee, not your savings, and learn with clear rules." data-pt="Você arrisca a taxa, não suas economias, e aprende com regras claras." data-it="Rischi la quota, non i tuoi risparmi, e impari con regole chiare.">Arriesgas la cuota, no tus ahorros, y aprendes con reglas claras.</span></div>
+      <div class="reco only-new"><span data-en="★ Best to start" data-pt="★ Ideal para começar" data-it="★ Ideale per iniziare">★ Ideal para empezar</span></div>
       <div class="tag" data-en="Propfirm · Firm capital" data-pt="Propfirm · Capital da empresa" data-it="Propfirm · Capitale della società">Propfirm · Capital de la firma</div>
       <div class="logo"><img src="img/soloclash.png" alt="Solo Clash" style="max-width:220px"></div>
       <p class="desc" data-en="Pass an evaluation and, if approved, trade with the firm&#39;s capital. What you risk is the fee, not your savings." data-pt="Você faz uma avaliação e, se aprovado, opera com capital da empresa. O que você arrisca é a taxa, não suas economias." data-it="Superi una valutazione e, se approvato, operi con il capitale della società. Rischi la quota, non i tuoi risparmi.">Pasas una evaluación y, si la apruebas, operas con capital de la firma. Lo que arriesgas es la cuota, no tus ahorros.</p>
@@ -307,7 +334,7 @@
     <p class="fine" data-en="Trading forex and/or CFDs with leverage carries high risk." data-pt="Operar forex e/ou CFDs com alavancagem envolve alto risco." data-it="Operare su forex e/o CFD con leva comporta un rischio elevato.">Operar divisas y/o CFDs con apalancamiento tiene alto riesgo.</p>
   </section>
 
-  <section class="faq only-new">
+  <section class="faq" id="faq">
     <div class="eyebrow" data-en="Questions" data-pt="Perguntas" data-it="Domande">Preguntas</div>
     <details><summary data-en="Does the community cost anything?" data-pt="A comunidade é paga?" data-it="La community costa qualcosa?">¿La comunidad cuesta?</summary><p data-en="No. It&#39;s free on Telegram. You join, read and ask." data-pt="Não. É grátis no Telegram. Você entra, lê e pergunta." data-it="No. È gratis su Telegram. Entri, leggi e fai domande.">No. Es gratis en Telegram. Entras, lees y preguntas.</p></details>
     <details><summary data-en="Do I need experience?" data-pt="Preciso de experiência?" data-it="Serve avere esperienza?">¿Necesito experiencia?</summary><p data-en="No. If you&#39;re starting from zero, start with the community before opening any account." data-pt="Não. Se está começando do zero, comece pela comunidade antes de abrir qualquer conta." data-it="No. Se parti da zero, inizia dalla community prima di aprire qualsiasi conto.">No. Si empiezas de cero, empieza por la comunidad antes de abrir cualquier cuenta.</p></details>
@@ -367,10 +394,10 @@ els.forEach(function(e){io.observe(e);});})();
 </script>
 <script>
 (function(){var L=(document.documentElement.lang||"es").slice(0,2);
-var D={es:["Próxima sesión","","En tu hora: ","Link copiado ✓","es-MX","hoy","mañana"],
-en:["Next session","","Your time: ","Link copied ✓","en-US","today","tomorrow"],
-pt:["Próxima sessão","","No seu horário: ","Link copiado ✓","pt-BR","hoje","amanhã"],
-it:["Prossima sessione","","Nel tuo orario: ","Link copiato ✓","it-IT","oggi","domani"]}[L]||["Next session","","Your time: ","Link copied ✓","en-US","today","tomorrow"];
+var D={es:["Próxima sesión","","","Link copiado ✓","es-MX","hoy","mañana","en","Ahora mismo · en vivo"],
+en:["Next session","","","Link copied ✓","en-US","today","tomorrow","in","Right now · live"],
+pt:["Próxima sessão","","","Link copiado ✓","pt-BR","hoje","amanhã","em","Agora mesmo · ao vivo"],
+it:["Prossima sessione","","","Link copiato ✓","it-IT","oggi","domani","tra","Proprio ora · in diretta"]}[L]||["Next session","","","Link copied ✓","en-US","today","tomorrow","in","Right now · live"];
 /* Sesiones (hora CDMX, UTC-6 fijo): dom 20h, mar 20h, jue 21h. Duran 2 h. */
 var SES={0:20,2:20,4:21},OFF=6*3600e3,DUR=2*3600e3,now=Date.now(),c=new Date(now-OFF),live=false,nxt=null,all=[];
 for(var k=-1;k<8;k++){var dd=new Date(Date.UTC(c.getUTCFullYear(),c.getUTCMonth(),c.getUTCDate()+k)),dw=dd.getUTCDay();
@@ -380,10 +407,12 @@ var lv=document.getElementById("live"),lt=document.getElementById("live-txt");
 function hm(t){return new Date(t).toLocaleTimeString(D[4],{hour:"numeric",minute:"2-digit"});}
 function dia(t){var a=new Date(t),b=new Date();a.setHours(0,0,0,0);b.setHours(0,0,0,0);var n=Math.round((a-b)/864e5);
 return n===0?D[5]:n===1?D[6]:new Date(t).toLocaleDateString(D[4],{weekday:"long"});}
-if(!live&&nxt){lv.classList.add("off");lt.textContent=D[0]+" · "+dia(nxt)+" "+hm(nxt);}
-/* si el visitante no esta en CDMX: los 3 horarios en su hora */
-if(new Date().getTimezoneOffset()!==360){all.sort(function(x,y){return new Date(x-OFF).getUTCDay()-new Date(y-OFF).getUTCDay();});
-try{document.getElementById("localt").textContent=D[2]+all.map(function(t){return new Date(t).toLocaleDateString(D[4],{weekday:"short"}).replace(".","")+" "+hm(t);}).join(" · ");}catch(e){}}
+var ups=[];for(var j=0;j<9&&ups.length<3;j++){var d2=new Date(Date.UTC(c.getUTCFullYear(),c.getUTCMonth(),c.getUTCDate()+j)),w2=d2.getUTCDay();if(w2 in SES){var s2=d2.getTime()+OFF+SES[w2]*3600e3;if(s2+DUR>now)ups.push(s2);}}
+function cd(ms){var m=Math.round(ms/6e4),d=Math.floor(m/1440),h=Math.floor(m%1440/60),mi=m%60;return D[7]+" "+(d?d+" d "+h+" h":h?h+" h "+mi+" min":mi+" min");}
+var sd=document.getElementById("slot-day"),sc=document.getElementById("slot-cd");
+if(live){sd.textContent=D[8];sc.textContent="";}
+else if(nxt){lv.classList.add("off");lt.textContent=D[0];sd.textContent=dia(nxt).replace(/^./,function(x){return x.toUpperCase();})+" · "+hm(nxt);sc.textContent=cd(nxt-now);}
+document.getElementById("slot-days").innerHTML=ups.map(function(t){return '<span'+(t===nxt||(live&&t<=now)?' class="on"':'')+'>'+new Date(t).toLocaleDateString(D[4],{weekday:"short"}).replace(".","")+" "+hm(t)+'</span>';}).join("");
 /* camino: soy nuevo / ya opero */
 var P="new";try{P=localStorage.getItem("path")||"new";}catch(e){}
 function setP(v){document.body.setAttribute("data-path",v);document.querySelectorAll(".seg button").forEach(function(b){var on=b.getAttribute("data-path")===v;b.classList.toggle("on",on);b.setAttribute("aria-selected",on);});try{localStorage.setItem("path",v);}catch(e){}}
