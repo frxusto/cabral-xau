@@ -179,6 +179,22 @@
   .lang-menu a{display:block;padding:10px 12px;border-radius:9px;color:#cfcfcf;text-decoration:none;font-size:14px;}
   .lang-menu a:hover{background:#1c1c1c;color:#fff;} .lang-menu a.on{color:#fff;font-weight:700;}
   .lang-menu a.on::after{content:" ✓";color:#8a8a8a;}
+  /* ---- caminos v3 ---- */
+  .session{text-align:left;margin:0 0 34px;padding:20px 18px 18px;border:1px solid var(--line);border-radius:20px;background:rgba(14,14,14,.9);}
+  .session h2{font-size:clamp(24px,7vw,28px);font-weight:700;letter-spacing:-.02em;margin:10px 0 8px;}
+  .session-p{margin:0 0 12px;font-size:14px;line-height:1.55;color:#a5a5a5;}
+  .session .when{margin:0 0 16px;}
+  .session-cta{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--fg);border:1px solid #333;border-radius:12px;padding:13px 16px;font-size:14.5px;font-weight:600;transition:border-color .2s,background .2s;}
+  .session-cta:hover{border-color:#666;background:#151515;}
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border:1px solid var(--line);border-radius:14px;background:#0e0e0e;margin:0 0 20px;}
+  .seg button{font:inherit;font-size:14.5px;font-weight:600;color:#8a8a8a;background:none;border:0;border-radius:10px;padding:11px 8px;cursor:pointer;transition:background .2s,color .2s;}
+  .seg button.on{background:var(--fg);color:#0a0a0a;}
+  .partners .steps{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-direction:column;gap:10px;}
+  .pro-lead{margin:0 0 16px;font-size:14px;color:#a5a5a5;}
+  body[data-path="new"] .only-pro,body[data-path="pro"] .only-new{display:none!important;}
+  #rain{opacity:.14;}
+  .avatar{animation:none;}
+  .btn.primary::after{animation:shine 1.6s ease-in-out .8s 1;}
 </style>
 <script data-goatcounter="https://fraustocabral.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -235,24 +251,27 @@
       <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg>
       <span class="stack"><span data-en="Join the community" data-pt="Faça parte da comunidade" data-it="Unisciti alla community">Únete a la comunidad</span><small data-en="Free · Telegram" data-pt="Grátis · Telegram" data-it="Gratis · Telegram">Gratis · Telegram</small></span>
     </a>
-    <a class="btn" href="#partners"><svg class="ic" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v4M7 15v6M17 3v2M17 13v8"/><rect x="5" y="7" width="4" height="8" rx="1"/><rect x="15" y="5" width="4" height="8" rx="1"/></svg><span data-en="Brokers &amp; funding" data-pt="Corretoras e financiamento" data-it="Broker e finanziamento">Brokers y fondeo</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
-    <div class="btn disabled"><svg class="ic" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg><span data-en="Resources" data-pt="Recursos" data-it="Risorse">Recursos</span> <span class="soon" data-en="Coming soon" data-pt="Em breve" data-it="In arrivo">Próximamente</span></div>
   </div>
 
-  <section class="steps">
-    <div class="eyebrow" data-en="How to start" data-pt="Como começar" data-it="Come iniziare">Cómo empezar</div>
-    <ol>
-      <li><span>1</span><div><b data-en="Join the community" data-pt="Faça parte da comunidade" data-it="Unisciti alla community">Únete a la comunidad</b><p data-en="Free. I share what I see in the market and answer questions." data-pt="Grátis. Lá compartilho o que vejo no mercado e respondo dúvidas." data-it="Gratis. Lì condivido ciò che vedo sul mercato e rispondo alle domande.">Gratis. Ahí comparto lo que veo en el mercado y respondo dudas.</p></div></li>
-      <li><span>2</span><div><b data-en="Choose how to trade" data-pt="Escolha como operar" data-it="Scegli come operare">Elige cómo operar</b><p data-en="Your own account with FPG, or firm capital with Solo Clash." data-pt="Com conta própria na FPG, ou com capital da empresa na Solo Clash." data-it="Con un conto tuo su FPG, o con il capitale della società su Solo Clash.">Con cuenta propia en FPG, o con capital de la firma en Solo Clash.</p></div></li>
-      <li><span>3</span><div><b data-en="Trade with me live" data-pt="Opere comigo ao vivo" data-it="Opera con me in diretta">Opera conmigo en vivo</b><p data-en="You see how I read the market and make decisions in real time." data-pt="Você vê como leio o mercado e tomo decisões em tempo real." data-it="Vedi come leggo il mercato e prendo decisioni in tempo reale.">Ves cómo leo el mercado y tomo decisiones en tiempo real.</p></div></li>
-    </ol>
+  <section class="session">
+    <div class="eyebrow live" id="live"><i></i><b id="live-txt" data-en="Live" data-pt="Ao vivo" data-it="In diretta">En vivo</b></div>
+    <h2 data-en="Trade with me, live" data-pt="Opere comigo, ao vivo" data-it="Opera con me, in diretta">Opera conmigo en vivo</h2>
+    <p class="session-p" data-en="You see how I read the market and make decisions in real time. Free, inside the community." data-pt="Você vê como leio o mercado e tomo decisões em tempo real. Grátis, dentro da comunidade." data-it="Vedi come leggo il mercato e prendo decisioni in tempo reale. Gratis, dentro la community.">Ves cómo leo el mercado y tomo decisiones en tiempo real. Gratis, dentro de la comunidad.</p>
+    <p class="when"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Sun &amp; Tue 8:00 pm · Thu 9:00 pm, Mexico City time" data-pt="Dom e ter 20h · qui 21h, horário da Cidade do México" data-it="Dom e mar ore 20:00 · gio ore 21:00, ora di Città del Messico">Dom y mar 8:00 pm · jue 9:00 pm, hora CDMX</span><span id="localt"></span></p>
+    <a class="session-cta" data-goatcounter-click="telegram-sesion" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><span data-en="Get the session link" data-pt="Receber o link da sessão" data-it="Ricevi il link della sessione">Recibe el link de la sesión</span><span aria-hidden="true">→</span></a>
   </section>
 
   <section class="partners" id="partners">
-    <div class="eyebrow live" id="live"><i></i><b id="live-txt" data-en="Live" data-pt="Ao vivo" data-it="In diretta">En vivo</b></div>
-    <h2 data-en="Trade with me" data-pt="Opere comigo" data-it="Opera con me">Opera conmigo</h2>
-    <p class="when"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Sun &amp; Tue 8:00 pm · Thu 9:00 pm, Mexico City time" data-pt="Dom e ter 20h · qui 21h, horário da Cidade do México" data-it="Dom e mar ore 20:00 · gio ore 21:00, ora di Città del Messico">Dom y mar 8:00 pm · jue 9:00 pm, hora CDMX</span><span id="localt"></span></p>
-    <div class="rule"></div>
+    <div class="seg" role="tablist">
+      <button type="button" role="tab" data-path="new" data-en="I&#39;m new" data-pt="Sou iniciante" data-it="Sono alle prime armi">Soy nuevo</button>
+      <button type="button" role="tab" data-path="pro" data-en="I already trade" data-pt="Já opero" data-it="Opero già">Ya opero</button>
+    </div>
+
+    <ol class="steps only-new">
+      <li><span>1</span><div><b data-en="Learn in the community" data-pt="Aprenda na comunidade" data-it="Impara nella community">Aprende en la comunidad</b><p data-en="Free. Read and ask before putting in any money." data-pt="Grátis. Leia e pergunte antes de colocar qualquer dinheiro." data-it="Gratis. Leggi e fai domande prima di mettere soldi.">Gratis. Lee y pregunta antes de poner dinero.</p></div></li>
+      <li><span>2</span><div><b data-en="Open a Pro account" data-pt="Abra uma conta Pro" data-it="Apri un conto Pro">Abre una cuenta Pro</b><p data-en="No commission. The simplest way to start." data-pt="Sem comissão. A forma mais simples de começar." data-it="Senza commissioni. Il modo più semplice per iniziare.">Sin comisión. La forma más simple de empezar.</p></div></li>
+    </ol>
+    <p class="pro-lead only-pro" data-en="Straight to it: your own account or firm capital." data-pt="Direto ao ponto: conta própria ou capital da empresa." data-it="Dritto al punto: conto proprio o capitale della società.">Directo al grano: cuenta propia o capital de la firma.</p>
 
     <div class="card light">
       <div class="tag" data-en="Broker · Own account" data-pt="Corretora · Conta própria" data-it="Broker · Conto proprio">Bróker · Cuenta propia</div>
@@ -265,7 +284,7 @@
       <a class="cta" href="#fpg" id="open-fpg" data-goatcounter-click="fpg-abrir-panel" data-en="Open account ›" data-pt="Abrir conta ›" data-it="Apri un conto ›">Abrir cuenta ›</a>
     </div>
 
-    <div class="card dark">
+    <div class="card dark only-pro">
       <div class="tag" data-en="Funding · Firm capital" data-pt="Financiamento · Capital da empresa" data-it="Finanziamento · Capitale della società">Fondeo · Capital de la firma</div>
       <div class="logo"><img src="img/soloclash.png" alt="Solo Clash" style="max-width:220px"></div>
       <p class="desc" data-en="Pass an evaluation and, if approved, trade with the firm&#39;s capital. What you risk is the fee, not your savings." data-pt="Você faz uma avaliação e, se aprovado, opera com capital da empresa. O que você arrisca é a taxa, não suas economias." data-it="Superi una valutazione e, se approvato, operi con il capitale della società. Rischi la quota, non i tuoi risparmi.">Pasas una evaluación y, si la apruebas, operas con capital de la firma. Lo que arriesgas es la cuota, no tus ahorros.</p>
@@ -277,7 +296,7 @@
     <p class="fine" data-en="Trading forex and/or CFDs with leverage carries high risk." data-pt="Operar forex e/ou CFDs com alavancagem envolve alto risco." data-it="Operare su forex e/o CFD con leva comporta un rischio elevato.">Operar divisas y/o CFDs con apalancamiento tiene alto riesgo.</p>
   </section>
 
-  <section class="faq">
+  <section class="faq only-new">
     <div class="eyebrow" data-en="Questions" data-pt="Perguntas" data-it="Domande">Preguntas</div>
     <details><summary data-en="Does the community cost anything?" data-pt="A comunidade é paga?" data-it="La community costa qualcosa?">¿La comunidad cuesta?</summary><p data-en="No. It&#39;s free on Telegram. You join, read and ask." data-pt="Não. É grátis no Telegram. Você entra, lê e pergunta." data-it="No. È gratis su Telegram. Entri, leggi e fai domande.">No. Es gratis en Telegram. Entras, lees y preguntas.</p></details>
     <details><summary data-en="Do I need experience?" data-pt="Preciso de experiência?" data-it="Serve avere esperienza?">¿Necesito experiencia?</summary><p data-en="No. If you&#39;re starting from zero, start with the community before opening any account." data-pt="Não. Se está começando do zero, comece pela comunidade antes de abrir qualquer conta." data-it="No. Se parti da zero, inizia dalla community prima di aprire qualsiasi conto.">No. Si empiezas de cero, empieza por la comunidad antes de abrir cualquier cuenta.</p></details>
@@ -354,6 +373,11 @@ if(!live&&nxt){lv.classList.add("off");lt.textContent=D[0]+" · "+dia(nxt)+" "+h
 /* si el visitante no esta en CDMX: los 3 horarios en su hora */
 if(new Date().getTimezoneOffset()!==360){all.sort(function(x,y){return new Date(x-OFF).getUTCDay()-new Date(y-OFF).getUTCDay();});
 try{document.getElementById("localt").textContent=D[2]+all.map(function(t){return new Date(t).toLocaleDateString(D[4],{weekday:"short"}).replace(".","")+" "+hm(t);}).join(" · ");}catch(e){}}
+/* camino: soy nuevo / ya opero */
+var P="new";try{P=localStorage.getItem("path")||"new";}catch(e){}
+function setP(v){document.body.setAttribute("data-path",v);document.querySelectorAll(".seg button").forEach(function(b){var on=b.getAttribute("data-path")===v;b.classList.toggle("on",on);b.setAttribute("aria-selected",on);});try{localStorage.setItem("path",v);}catch(e){}}
+setP(P);
+document.querySelectorAll(".seg button").forEach(function(b){b.addEventListener("click",function(){setP(b.getAttribute("data-path"));if(window.goatcounter&&goatcounter.count)goatcounter.count({path:"camino-"+b.getAttribute("data-path"),event:true});});});
 /* mundito de idioma */
 var lb=document.getElementById("lang-btn"),lm=document.getElementById("lang-menu");
 document.getElementById("lang-cur").textContent=L.slice(0,2).toUpperCase();
