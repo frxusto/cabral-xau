@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Frausto Cabral</title>
-<meta name="description" content="Frausto Cabral — 8 años en los mercados. Comunidad, brokers y fondeo.">
+<meta name="description" content="Frausto Cabral — 8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y fondeo.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://frxusto.github.io/cabral-xau/">
 <meta property="og:title" content="Frausto Cabral">
-<meta property="og:description" content="8 años en los mercados. Comunidad, brokers y fondeo.">
+<meta property="og:description" content="8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y fondeo.">
+<meta name="twitter:title" content="Frausto Cabral">
+<meta name="twitter:description" content="8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y fondeo.">
 <meta property="og:image" content="https://frxusto.github.io/cabral-xau/img/og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -116,7 +118,8 @@
   .share:hover{border-color:#666;color:#fff;}
   .live.off i{animation:none;box-shadow:0 0 8px rgba(255,45,45,.55);}
   .live.off b{color:var(--dim);}
-  #localt{color:#6f6f6f;}
+  #localt{color:#7a7a7a;flex-basis:100%;padding-left:21px;font-size:12.5px;}
+  #localt:empty{display:none;}
   .when{flex-wrap:wrap;}
   .dock{display:none;}
   @media (max-width:640px){
@@ -167,7 +170,17 @@
   .cta:active{transform:scale(.97);}
   .steps li>span{background:#f4f4f4;color:#0a0a0a;border-color:#f4f4f4;}
   @media (prefers-reduced-motion:reduce){.opt.pro,.btn.primary::after,.avatar{animation:none;}.sheet .opt,.sheet .sheet-fine{opacity:1;transform:none;transition:none;}}
+  .lang{position:fixed;top:14px;right:14px;z-index:8;}
+  .lang button{display:flex;align-items:center;gap:6px;background:rgba(17,17,17,.8);backdrop-filter:blur(6px);border:1px solid #2a2a2a;color:#cfcfcf;border-radius:999px;padding:7px 11px;font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:border-color .2s,color .2s;}
+  .lang button:hover{border-color:#555;color:#fff;}
+  .lang button svg{transition:transform .6s ease;} .lang button:hover svg{transform:rotate(180deg);}
+  .lang-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:150px;background:#121212;border:1px solid #2a2a2a;border-radius:14px;padding:6px;box-shadow:0 16px 40px rgba(0,0,0,.6);opacity:0;transform:translateY(-6px) scale(.97);transform-origin:top right;pointer-events:none;transition:opacity .18s,transform .2s;}
+  .lang-menu.open{opacity:1;transform:none;pointer-events:auto;}
+  .lang-menu a{display:block;padding:10px 12px;border-radius:9px;color:#cfcfcf;text-decoration:none;font-size:14px;}
+  .lang-menu a:hover{background:#1c1c1c;color:#fff;} .lang-menu a.on{color:#fff;font-weight:700;}
+  .lang-menu a.on::after{content:" ✓";color:#8a8a8a;}
 </style>
+<script data-goatcounter="https://fraustocabral.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div class="sheet-bg" id="sheet-bg"></div>
@@ -175,7 +188,7 @@
   <div class="grab"></div>
   <div class="sheet-head"><h3 id="sheet-title" data-en="Choose your FPG account" data-pt="Escolha sua conta FPG" data-it="Scegli il tuo conto FPG">Elige tu cuenta FPG</h3><button class="x" id="close-fpg" aria-label="Cerrar">×</button></div>
   <p class="sheet-sub" data-en="Two ways to trade. The difference is how you pay for each trade." data-pt="Duas formas de operar. A diferença é como você paga cada operação." data-it="Due modi di operare. La differenza è come paghi ogni operazione.">Dos formas de operar. La diferencia es cómo pagas cada operación.</p>
-  <a class="opt pro" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2H" target="_blank" rel="noopener sponsored">
+  <a class="opt pro" data-goatcounter-click="fpg-pro" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2H" target="_blank" rel="noopener sponsored">
     <span class="opt-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>
     <span class="opt-body">
       <span class="opt-name"><span data-en="Pro Account" data-pt="Conta Pro" data-it="Conto Pro">Cuenta Pro</span> <em class="rec" data-en="To start" data-pt="Para começar" data-it="Per iniziare">Para empezar</em></span>
@@ -184,7 +197,7 @@
     </span>
     <span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
   </a>
-  <a class="opt" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2I" target="_blank" rel="noopener sponsored">
+  <a class="opt" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2I" data-goatcounter-click="fpg-ecn" target="_blank" rel="noopener sponsored">
     <span class="opt-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
     <span class="opt-body">
       <span class="opt-name" data-en="ECN Account" data-pt="Conta ECN" data-it="Conto ECN">Cuenta ECN</span>
@@ -195,6 +208,8 @@
   </a>
   <p class="sheet-fine" data-en="Exact conditions are shown on the FPG portal." data-pt="As condições exatas estão no portal da FPG." data-it="Le condizioni esatte sono sul portale FPG.">Las condiciones exactas las ves en el portal de FPG.</p>
 </div>
+<div class="lang" id="lang"><button type="button" id="lang-btn" aria-label="Idioma / Language" aria-expanded="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5Z"/></svg><span id="lang-cur">ES</span></button>
+<div class="lang-menu" id="lang-menu" role="menu"><a href="?lang=es" data-l="es">Español</a><a href="?lang=en" data-l="en">English</a><a href="?lang=pt" data-l="pt">Português</a><a href="?lang=it" data-l="it">Italiano</a></div></div>
 <canvas id="rain" aria-hidden="true"></canvas>
 <div class="wrap">
 
@@ -202,9 +217,9 @@
   <h1>Frausto Cabral</h1>
   <p class="handle">@fraustocabral</p>
   <div class="socials">
-    <a href="https://www.instagram.com/fraustocabral" target="_blank" rel="noopener" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.02-3.58.07-4.85c.15-3.23 1.67-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
-    <a href="https://www.tiktok.com/@fraustocabral" target="_blank" rel="noopener" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-1.1-1.16-1.7-2.68-1.7-4.25h-3.16v13.66a3.19 3.19 0 0 1-5.28 2.4 3.19 3.19 0 0 1 1.83-5.79c.27 0 .53.03.79.1V8.68a6.4 6.4 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V9.28a8.28 8.28 0 0 0 4.83 1.54V7.66a4.85 4.85 0 0 1-2.86-1.84Z"/></svg></a>
-    <a href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener" aria-label="Telegram"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg></a>
+    <a href="https://www.instagram.com/fraustocabral" target="_blank" rel="noopener" aria-label="Instagram" data-goatcounter-click="instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.02-3.58.07-4.85c.15-3.23 1.67-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+    <a href="https://www.tiktok.com/@fraustocabral" target="_blank" rel="noopener" aria-label="TikTok" data-goatcounter-click="tiktok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-1.1-1.16-1.7-2.68-1.7-4.25h-3.16v13.66a3.19 3.19 0 0 1-5.28 2.4 3.19 3.19 0 0 1 1.83-5.79c.27 0 .53.03.79.1V8.68a6.4 6.4 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V9.28a8.28 8.28 0 0 0 4.83 1.54V7.66a4.85 4.85 0 0 1-2.86-1.84Z"/></svg></a>
+    <a href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener" aria-label="Telegram" data-goatcounter-click="telegram-icono"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg></a>
   </div>
 
   <p class="bio" data-en="8 years in the markets. AMIB Figure 3 certified.<br><br>I have lost entire accounts in one night and built them back. Today I share what the industry won&#39;t tell you in any post." data-pt="8 anos nos mercados. Certificado Figura 3 AMIB.<br><br>Já perdi contas inteiras em uma noite e voltei a levantá-las. Hoje compartilho o que a indústria não te conta em nenhum post." data-it="8 anni nei mercati. Certificato Figura 3 AMIB.<br><br>Ho perso interi conti in una notte e li ho ricostruiti. Oggi condivido ciò che il settore non ti dice in nessun post.">
@@ -216,7 +231,7 @@
   </p>
 
   <div class="links">
-    <a class="btn primary" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener">
+    <a class="btn primary" data-goatcounter-click="telegram-boton" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener">
       <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg>
       <span class="stack"><span data-en="Join the community" data-pt="Faça parte da comunidade" data-it="Unisciti alla community">Únete a la comunidad</span><small data-en="Free · Telegram" data-pt="Grátis · Telegram" data-it="Gratis · Telegram">Gratis · Telegram</small></span>
     </a>
@@ -236,7 +251,7 @@
   <section class="partners" id="partners">
     <div class="eyebrow live" id="live"><i></i><b id="live-txt" data-en="Live" data-pt="Ao vivo" data-it="In diretta">En vivo</b></div>
     <h2 data-en="Trade with me" data-pt="Opere comigo" data-it="Opera con me">Opera conmigo</h2>
-    <p class="when"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Live sessions · 8:00 pm Mexico City time" data-pt="Sessões ao vivo · 20h (horário da Cidade do México)" data-it="Sessioni in diretta · ore 20:00 (ora di Città del Messico)">Sesiones en vivo · 8:00 pm hora CDMX</span><span id="localt"></span></p>
+    <p class="when"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Sun &amp; Tue 8:00 pm · Thu 9:00 pm, Mexico City time" data-pt="Dom e ter 20h · qui 21h, horário da Cidade do México" data-it="Dom e mar ore 20:00 · gio ore 21:00, ora di Città del Messico">Dom y mar 8:00 pm · jue 9:00 pm, hora CDMX</span><span id="localt"></span></p>
     <div class="rule"></div>
 
     <div class="card light">
@@ -247,14 +262,14 @@
         <img src="img/acmilan.png" alt="AC Milan">
         <span data-en="FPG is <strong>Official Online Trading Partner</strong> of AC Milan" data-pt="A FPG é <strong>Official Online Trading Partner</strong> do AC Milan" data-it="FPG è <strong>Official Online Trading Partner</strong> dell&#39;AC Milan">FPG es <strong>Official Online Trading Partner</strong> de AC Milan</span>
       </div>
-      <a class="cta" href="#fpg" id="open-fpg" data-en="Open account ›" data-pt="Abrir conta ›" data-it="Apri un conto ›">Abrir cuenta ›</a>
+      <a class="cta" href="#fpg" id="open-fpg" data-goatcounter-click="fpg-abrir-panel" data-en="Open account ›" data-pt="Abrir conta ›" data-it="Apri un conto ›">Abrir cuenta ›</a>
     </div>
 
     <div class="card dark">
       <div class="tag" data-en="Funding · Firm capital" data-pt="Financiamento · Capital da empresa" data-it="Finanziamento · Capitale della società">Fondeo · Capital de la firma</div>
       <div class="logo"><img src="img/soloclash.png" alt="Solo Clash" style="max-width:220px"></div>
       <p class="desc" data-en="Pass an evaluation and, if approved, trade with the firm&#39;s capital. What you risk is the fee, not your savings." data-pt="Você faz uma avaliação e, se aprovado, opera com capital da empresa. O que você arrisca é a taxa, não suas economias." data-it="Superi una valutazione e, se approvato, operi con il capitale della società. Rischi la quota, non i tuoi risparmi.">Pasas una evaluación y, si la apruebas, operas con capital de la firma. Lo que arriesgas es la cuota, no tus ahorros.</p>
-      <a class="cta" href="https://dashboard.soloclash.com/sign-up?referral_id=fraustocabral" target="_blank" rel="noopener sponsored" data-en="Start evaluation ›" data-pt="Começar avaliação ›" data-it="Inizia la valutazione ›">Empezar evaluación ›</a>
+      <a class="cta" data-goatcounter-click="soloclash" href="https://dashboard.soloclash.com/sign-up?referral_id=fraustocabral" target="_blank" rel="noopener sponsored" data-en="Start evaluation ›" data-pt="Começar avaliação ›" data-it="Inizia la valutazione ›">Empezar evaluación ›</a>
     </div>
 
     <div class="next"><span data-en="✦ New partners" data-pt="✦ Novos parceiros" data-it="✦ Nuovi partner">✦ Nuevos partners</span><span data-en="coming soon" data-pt="em breve" data-it="in arrivo">próximamente</span></div>
@@ -270,14 +285,14 @@
     <details><summary data-en="What is a funding evaluation?" data-pt="O que é uma avaliação de financiamento?" data-it="Cos&#39;è una valutazione di finanziamento?">¿Qué es una evaluación de fondeo?</summary><p data-en="You pay a fee and trade an account with rules. If you meet them, the firm gives you capital to trade. If you don&#39;t pass, you lose the fee, not your savings." data-pt="Você paga uma taxa e opera uma conta com regras. Se cumprir, a empresa te dá capital para operar. Se não passar, perde a taxa, não suas economias." data-it="Paghi una quota e operi un conto con delle regole. Se le rispetti, la società ti dà capitale per operare. Se non passi, perdi la quota, non i tuoi risparmi.">Pagas una cuota y operas una cuenta con reglas. Si las cumples, la firma te da capital para operar. Si no pasas, pierdes la cuota, no tus ahorros.</p></details>
   </section>
 
-  <button class="share" id="share" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><span id="share-txt" data-en="Send it to someone who trades" data-pt="Envie para alguém que também opera" data-it="Invialo a chi opera sui mercati">Mándaselo a alguien que opere</span></button>
+  <button class="share" id="share" data-goatcounter-click="compartir" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><span id="share-txt" data-en="Send it to someone who trades" data-pt="Envie para alguém que também opera" data-it="Invialo a chi opera sui mercati">Mándaselo a alguien que opere</span></button>
 
 
   <footer>Frausto Cabral</footer>
 </div>
-<a class="dock" id="dock" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg><span data-en="Join free" data-pt="Participe grátis" data-it="Unisciti gratis">Únete gratis</span><span aria-hidden="true">→</span></a>
+<a class="dock" id="dock" data-goatcounter-click="telegram-barra" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg><span data-en="Join free" data-pt="Participe grátis" data-it="Unisciti gratis">Únete gratis</span><span aria-hidden="true">→</span></a>
 <script>
-(function(){var q=new URLSearchParams(location.search).get("lang");var l=q||(navigator.languages&&navigator.languages[0])||navigator.language||"es";
+(function(){var q=new URLSearchParams(location.search).get("lang"),sv=null;try{sv=localStorage.getItem("lang");}catch(e){}var l=q||sv||(navigator.languages&&navigator.languages[0])||navigator.language||"es";
 var L=(l.slice(0,2)||"es").toLowerCase();if(["es","en","pt","it"].indexOf(L)<0)L="en";
 if(L!=="es"){document.documentElement.lang=L;
 document.querySelectorAll("[data-en]").forEach(function(e){e.innerHTML=e.getAttribute("data-"+L);});}})();
@@ -321,18 +336,31 @@ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isInter
 els.forEach(function(e){io.observe(e);});})();
 </script>
 <script>
-(function(){var L=document.documentElement.lang||"es";
-var D={es:["Próxima sesión · hoy","Próxima sesión · mañana","tu hora ","Link copiado ✓","es-MX"],
-en:["Next session · today","Next session · tomorrow","your time ","Link copied ✓","en-US"],
-pt:["Próxima sessão · hoje","Próxima sessão · amanhã","seu horário ","Link copiado ✓","pt-BR"],
-it:["Prossima sessione · oggi","Prossima sessione · domani","tua ora ","Link copiato ✓","it-IT"]}[L]||["Next session · today","Next session · tomorrow","your time ","Link copied ✓","en-US"];
-/* En vivo: 8-10 pm hora CDMX (UTC-6, sin horario de verano) */
-var now=new Date(),cm=new Date(now.getTime()-6*3600e3),h=cm.getUTCHours();
+(function(){var L=(document.documentElement.lang||"es").slice(0,2);
+var D={es:["Próxima sesión","","En tu hora: ","Link copiado ✓","es-MX","hoy","mañana"],
+en:["Next session","","Your time: ","Link copied ✓","en-US","today","tomorrow"],
+pt:["Próxima sessão","","No seu horário: ","Link copiado ✓","pt-BR","hoje","amanhã"],
+it:["Prossima sessione","","Nel tuo orario: ","Link copiato ✓","it-IT","oggi","domani"]}[L]||["Next session","","Your time: ","Link copied ✓","en-US","today","tomorrow"];
+/* Sesiones (hora CDMX, UTC-6 fijo): dom 20h, mar 20h, jue 21h. Duran 2 h. */
+var SES={0:20,2:20,4:21},OFF=6*3600e3,DUR=2*3600e3,now=Date.now(),c=new Date(now-OFF),live=false,nxt=null,all=[];
+for(var k=-1;k<8;k++){var dd=new Date(Date.UTC(c.getUTCFullYear(),c.getUTCMonth(),c.getUTCDate()+k)),dw=dd.getUTCDay();
+if(!(dw in SES))continue;var st=dd.getTime()+OFF+SES[dw]*3600e3;
+if(now>=st&&now<st+DUR)live=true;else if(st>now&&!nxt)nxt=st;if(k>=0&&all.length<3&&all.every(function(x){return new Date(x-OFF).getUTCDay()!==dw;}))all.push(st);}
 var lv=document.getElementById("live"),lt=document.getElementById("live-txt");
-if(h<20||h>=22){lv.classList.add("off");lt.textContent=h<20?D[0]:D[1];}
-/* hora local del visitante si no esta en CDMX */
-if(now.getTimezoneOffset()!==360){var s=new Date(Date.UTC(cm.getUTCFullYear(),cm.getUTCMonth(),cm.getUTCDate(),26,0));
-try{document.getElementById("localt").textContent=" ("+D[2]+s.toLocaleTimeString(D[4],{hour:"numeric",minute:"2-digit"})+")";}catch(e){}}
+function hm(t){return new Date(t).toLocaleTimeString(D[4],{hour:"numeric",minute:"2-digit"});}
+function dia(t){var a=new Date(t),b=new Date();a.setHours(0,0,0,0);b.setHours(0,0,0,0);var n=Math.round((a-b)/864e5);
+return n===0?D[5]:n===1?D[6]:new Date(t).toLocaleDateString(D[4],{weekday:"long"});}
+if(!live&&nxt){lv.classList.add("off");lt.textContent=D[0]+" · "+dia(nxt)+" "+hm(nxt);}
+/* si el visitante no esta en CDMX: los 3 horarios en su hora */
+if(new Date().getTimezoneOffset()!==360){all.sort(function(x,y){return new Date(x-OFF).getUTCDay()-new Date(y-OFF).getUTCDay();});
+try{document.getElementById("localt").textContent=D[2]+all.map(function(t){return new Date(t).toLocaleDateString(D[4],{weekday:"short"}).replace(".","")+" "+hm(t);}).join(" · ");}catch(e){}}
+/* mundito de idioma */
+var lb=document.getElementById("lang-btn"),lm=document.getElementById("lang-menu");
+document.getElementById("lang-cur").textContent=L.slice(0,2).toUpperCase();
+lm.querySelectorAll("a").forEach(function(a){if(a.getAttribute("data-l")===L.slice(0,2))a.classList.add("on");
+a.addEventListener("click",function(){try{localStorage.setItem("lang",a.getAttribute("data-l"));}catch(e){}});});
+lb.addEventListener("click",function(e){e.stopPropagation();var o=lm.classList.toggle("open");lb.setAttribute("aria-expanded",o);});
+document.addEventListener("click",function(){lm.classList.remove("open");lb.setAttribute("aria-expanded","false");});
 /* compartir */
 var b=document.getElementById("share"),t=document.getElementById("share-txt"),u="https://frxusto.github.io/cabral-xau/";
 b.addEventListener("click",function(){
