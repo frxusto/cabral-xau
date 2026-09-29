@@ -104,6 +104,26 @@
   .stack{align-items:center;}
   .btn .soon{position:absolute;right:16px;top:50%;transform:translateY(-50%);}
   .when{display:flex;align-items:center;gap:7px;margin:-4px 0 14px;font-size:13.5px;color:#b5b5b5;}
+  .faq{text-align:left;margin:0 0 30px;}
+  .faq .eyebrow{margin-bottom:12px;}
+  .faq details{border:1px solid var(--line);border-radius:14px;background:rgba(17,17,17,.85);margin-bottom:8px;}
+  .faq summary{list-style:none;cursor:pointer;padding:15px 44px 15px 16px;font-size:14.5px;font-weight:600;position:relative;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"";position:absolute;right:18px;top:50%;width:8px;height:8px;border-right:2px solid #8a8a8a;border-bottom:2px solid #8a8a8a;transform:translateY(-70%) rotate(45deg);transition:transform .2s;}
+  .faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg);}
+  .faq details p{margin:0;padding:0 16px 15px;font-size:13.5px;line-height:1.55;color:#a5a5a5;}
+  .share{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:none;border:1px dashed #3a3a3a;color:#cfcfcf;border-radius:12px;padding:14px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;margin:0 0 30px;transition:border-color .2s,color .2s;}
+  .share:hover{border-color:#666;color:#fff;}
+  .live.off i{animation:none;background:#6a6a6a;box-shadow:none;}
+  .live.off b{color:var(--dim);}
+  #localt{color:#6f6f6f;}
+  .when{flex-wrap:wrap;}
+  .dock{display:none;}
+  @media (max-width:640px){
+    .dock{display:flex;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:9;align-items:center;justify-content:center;gap:9px;background:var(--fg);color:#0a0a0a;text-decoration:none;font-weight:700;font-size:15px;padding:15px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.6);transform:translateY(140%);transition:transform .3s cubic-bezier(.2,.8,.2,1);}
+    .dock.show{transform:none;}
+    body{padding-bottom:100px;}
+  }
 </style>
 </head>
 <body>
@@ -156,9 +176,9 @@
   </section>
 
   <section class="partners" id="partners">
-    <div class="eyebrow live"><i></i><b data-en="Live">En vivo</b></div>
+    <div class="eyebrow live" id="live"><i></i><b id="live-txt" data-en="Live">En vivo</b></div>
     <h2 data-en="Trade with me">Opera conmigo</h2>
-    <p class="when"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Live sessions · 8:00 pm Mexico City time">Sesiones en vivo · 8:00 pm hora CDMX</span></p>
+    <p class="when"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Live sessions · 8:00 pm Mexico City time">Sesiones en vivo · 8:00 pm hora CDMX</span><span id="localt"></span></p>
     <div class="rule"></div>
 
     <div class="card light">
@@ -184,6 +204,16 @@
     <p class="fine" data-en="Trading forex and/or CFDs with leverage carries high risk.">Operar divisas y/o CFDs con apalancamiento tiene alto riesgo.</p>
   </section>
 
+  <section class="faq">
+    <div class="eyebrow" data-en="Questions">Preguntas</div>
+    <details><summary data-en="Does the community cost anything?">¿La comunidad cuesta?</summary><p data-en="No. It&#39;s free on Telegram. You join, read and ask.">No. Es gratis en Telegram. Entras, lees y preguntas.</p></details>
+    <details><summary data-en="Do I need experience?">¿Necesito experiencia?</summary><p data-en="No. If you&#39;re starting from zero, start with the community before opening any account.">No. Si empiezas de cero, empieza por la comunidad antes de abrir cualquier cuenta.</p></details>
+    <details><summary data-en="Pro or ECN account?">¿Cuenta Pro o ECN?</summary><p data-en="Pro if you&#39;re starting: no commission, the cost is in the spread. ECN if you trade high volume or scalp.">Pro si vas empezando: sin comisión, el costo va en el spread. ECN si operas mucho volumen o haces scalping.</p></details>
+    <details><summary data-en="What is a funding evaluation?">¿Qué es una evaluación de fondeo?</summary><p data-en="You pay a fee and trade an account with rules. If you meet them, the firm gives you capital to trade. If you don&#39;t pass, you lose the fee, not your savings.">Pagas una cuota y operas una cuenta con reglas. Si las cumples, la firma te da capital para operar. Si no pasas, pierdes la cuota, no tus ahorros.</p></details>
+  </section>
+
+  <button class="share" id="share" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg><span id="share-txt" data-en="Send it to someone who trades">Mándaselo a alguien que opere</span></button>
+
   <div class="socials">
     <a href="https://www.instagram.com/fraustocabral" target="_blank" rel="noopener" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.02-3.58.07-4.85c.15-3.23 1.67-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
     <a href="https://www.tiktok.com/@fraustocabral" target="_blank" rel="noopener" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-1.1-1.16-1.7-2.68-1.7-4.25h-3.16v13.66a3.19 3.19 0 0 1-5.28 2.4 3.19 3.19 0 0 1 1.83-5.79c.27 0 .53.03.79.1V8.68a6.4 6.4 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V9.28a8.28 8.28 0 0 0 4.83 1.54V7.66a4.85 4.85 0 0 1-2.86-1.84Z"/></svg></a>
@@ -192,6 +222,7 @@
 
   <footer>Frausto Cabral</footer>
 </div>
+<a class="dock" id="dock" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.6L19.5 6.5c.43-.4-.1-.6-.68-.2L8.24 13.47l-5.5-1.72c-1.2-.38-1.22-1.2.25-1.77l21.4-8.25c1-.36 1.87.24 1.52 1.76Z"/></svg><span data-en="Join free">Únete gratis</span><span aria-hidden="true">→</span></a>
 <script>
 (function(){var q=new URLSearchParams(location.search).get("lang");var l=q||(navigator.languages&&navigator.languages[0])||navigator.language||"es";
 if(!/^es/i.test(l)){document.documentElement.lang="en";
@@ -234,6 +265,29 @@ if(!("IntersectionObserver"in window))return;
 els.forEach(function(e){e.classList.add("reveal");});
 var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}});},{threshold:.12});
 els.forEach(function(e){io.observe(e);});})();
+</script>
+<script>
+(function(){var en=document.documentElement.lang==="en";
+/* En vivo: 8-10 pm hora CDMX (UTC-6, sin horario de verano) */
+var now=new Date(),cm=new Date(now.getTime()-6*3600e3),h=cm.getUTCHours();
+var lv=document.getElementById("live"),lt=document.getElementById("live-txt");
+if(h<20||h>=22){lv.classList.add("off");lt.textContent=en?(h<20?"Next session · today":"Next session · tomorrow"):(h<20?"Próxima sesión · hoy":"Próxima sesión · mañana");}
+/* hora local del visitante si no esta en CDMX */
+if(now.getTimezoneOffset()!==360){var s=new Date(Date.UTC(cm.getUTCFullYear(),cm.getUTCMonth(),cm.getUTCDate(),26,0));
+try{document.getElementById("localt").textContent=" ("+(en?"your time ":"tu hora ")+s.toLocaleTimeString(en?"en-US":"es-MX",{hour:"numeric",minute:"2-digit"})+")";}catch(e){}}
+/* compartir */
+var b=document.getElementById("share"),t=document.getElementById("share-txt"),u="https://frxusto.github.io/cabral-xau/";
+b.addEventListener("click",function(){
+if(navigator.share){navigator.share({title:"Frausto Cabral",url:u}).catch(function(){});return;}
+var done=function(){var o=t.textContent;t.textContent=en?"Link copied ✓":"Link copiado ✓";setTimeout(function(){t.textContent=o;},1800);};
+if(navigator.clipboard)navigator.clipboard.writeText(u).then(done,function(){prompt("",u);});else prompt("",u);});
+/* barra fija: aparece cuando los botones de arriba salen de pantalla */
+var d=document.getElementById("dock"),top=document.querySelector(".links"),sh=document.getElementById("sheet");
+if("IntersectionObserver"in window){var vis=true;
+new IntersectionObserver(function(e){vis=e[0].isIntersecting;upd();}).observe(top);
+function upd(){d.classList.toggle("show",!vis&&!sh.classList.contains("open"));}
+new MutationObserver(upd).observe(sh,{attributes:true,attributeFilter:["class"]});}
+})();
 </script>
 </body>
 </html>
