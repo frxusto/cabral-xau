@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Frausto Cabral</title>
-<meta name="description" content="Frausto Cabral — 8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y fondeo.">
+<meta name="description" content="Frausto Cabral — 8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y propfirms.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://frxusto.github.io/cabral-xau/">
 <meta property="og:title" content="Frausto Cabral">
-<meta property="og:description" content="8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y fondeo.">
+<meta property="og:description" content="8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y propfirms.">
 <meta name="twitter:title" content="Frausto Cabral">
-<meta name="twitter:description" content="8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y fondeo.">
+<meta name="twitter:description" content="8 años en los mercados. Comunidad gratis, sesiones en vivo, brokers y propfirms.">
 <meta property="og:image" content="https://frxusto.github.io/cabral-xau/img/og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -195,6 +195,12 @@
   #rain{opacity:.14;}
   .avatar{animation:none;}
   .btn.primary::after{animation:shine 1.6s ease-in-out .8s 1;}
+  .cards{display:flex;flex-direction:column;}
+  body[data-path="new"] .card.dark{order:-1;}
+  .reco{display:flex;flex-direction:column;gap:3px;margin:-6px -6px 16px;padding:10px 12px;border-radius:12px;font-size:12.5px;line-height:1.4;}
+  .reco b{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;}
+  .card.light .reco{background:#0a0a0a;color:#cfcfcf;} .card.light .reco b{color:#fff;}
+  .card.dark .reco{background:#f4f4f4;color:#333;} .card.dark .reco b{color:#0a0a0a;}
 </style>
 <script data-goatcounter="https://fraustocabral.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -269,11 +275,13 @@
 
     <ol class="steps only-new">
       <li><span>1</span><div><b data-en="Learn in the community" data-pt="Aprenda na comunidade" data-it="Impara nella community">Aprende en la comunidad</b><p data-en="Free. Read and ask before putting in any money." data-pt="Grátis. Leia e pergunte antes de colocar qualquer dinheiro." data-it="Gratis. Leggi e fai domande prima di mettere soldi.">Gratis. Lee y pregunta antes de poner dinero.</p></div></li>
-      <li><span>2</span><div><b data-en="Open a Pro account" data-pt="Abra uma conta Pro" data-it="Apri un conto Pro">Abre una cuenta Pro</b><p data-en="No commission. The simplest way to start." data-pt="Sem comissão. A forma mais simples de começar." data-it="Senza commissioni. Il modo più semplice per iniziare.">Sin comisión. La forma más simple de empezar.</p></div></li>
+      <li><span>2</span><div><b data-en="Start with a propfirm" data-pt="Comece com uma propfirm" data-it="Inizia con una propfirm">Empieza con una propfirm</b><p data-en="You risk the fee, not your savings." data-pt="Você arrisca a taxa, não suas economias." data-it="Rischi la quota, non i tuoi risparmi.">Arriesgas la cuota, no tus ahorros.</p></div></li>
     </ol>
-    <p class="pro-lead only-pro" data-en="Straight to it: your own account or firm capital." data-pt="Direto ao ponto: conta própria ou capital da empresa." data-it="Dritto al punto: conto proprio o capitale della società.">Directo al grano: cuenta propia o capital de la firma.</p>
+    <p class="pro-lead only-pro" data-en="Straight to it: your own account or a propfirm." data-pt="Direto ao ponto: conta própria ou propfirm." data-it="Dritto al punto: conto proprio o propfirm.">Directo al grano: cuenta propia o propfirm.</p>
 
+    <div class="cards">
     <div class="card light">
+      <div class="reco only-pro"><b data-en="Recommended" data-pt="Recomendado" data-it="Consigliato">Recomendada</b><span data-en="Your capital, no evaluation rules. ECN if you trade volume." data-pt="Seu capital, sem regras de avaliação. ECN se você opera volume." data-it="Il tuo capitale, senza regole di valutazione. ECN se fai volumi.">Tu capital, sin reglas de evaluación. ECN si haces volumen.</span></div>
       <div class="tag" data-en="Broker · Own account" data-pt="Corretora · Conta própria" data-it="Broker · Conto proprio">Bróker · Cuenta propia</div>
       <div class="logo"><img src="img/fpg.png" alt="FPG Fortune Prime Global"></div>
       <p class="desc" data-en="You trade your own capital. In the market since 2011." data-pt="Você opera com seu próprio capital. No mercado desde 2011." data-it="Operi con il tuo capitale. Sul mercato dal 2011.">Operas con tu propio capital. En el mercado desde 2011.</p>
@@ -284,11 +292,14 @@
       <a class="cta" href="#fpg" id="open-fpg" data-goatcounter-click="fpg-abrir-panel" data-en="Open account ›" data-pt="Abrir conta ›" data-it="Apri un conto ›">Abrir cuenta ›</a>
     </div>
 
-    <div class="card dark only-pro">
-      <div class="tag" data-en="Funding · Firm capital" data-pt="Financiamento · Capital da empresa" data-it="Finanziamento · Capitale della società">Fondeo · Capital de la firma</div>
+    <div class="card dark">
+      <div class="reco only-new"><b data-en="Recommended to start" data-pt="Recomendado para começar" data-it="Consigliato per iniziare">Recomendada para empezar</b><span data-en="You risk the fee, not your savings, and learn with clear rules." data-pt="Você arrisca a taxa, não suas economias, e aprende com regras claras." data-it="Rischi la quota, non i tuoi risparmi, e impari con regole chiare.">Arriesgas la cuota, no tus ahorros, y aprendes con reglas claras.</span></div>
+      <div class="tag" data-en="Propfirm · Firm capital" data-pt="Propfirm · Capital da empresa" data-it="Propfirm · Capitale della società">Propfirm · Capital de la firma</div>
       <div class="logo"><img src="img/soloclash.png" alt="Solo Clash" style="max-width:220px"></div>
       <p class="desc" data-en="Pass an evaluation and, if approved, trade with the firm&#39;s capital. What you risk is the fee, not your savings." data-pt="Você faz uma avaliação e, se aprovado, opera com capital da empresa. O que você arrisca é a taxa, não suas economias." data-it="Superi una valutazione e, se approvato, operi con il capitale della società. Rischi la quota, non i tuoi risparmi.">Pasas una evaluación y, si la apruebas, operas con capital de la firma. Lo que arriesgas es la cuota, no tus ahorros.</p>
       <a class="cta" data-goatcounter-click="soloclash" href="https://dashboard.soloclash.com/sign-up?referral_id=fraustocabral" target="_blank" rel="noopener sponsored" data-en="Start evaluation ›" data-pt="Começar avaliação ›" data-it="Inizia la valutazione ›">Empezar evaluación ›</a>
+    </div>
+
     </div>
 
     <div class="next"><span data-en="✦ New partners" data-pt="✦ Novos parceiros" data-it="✦ Nuovi partner">✦ Nuevos partners</span><span data-en="coming soon" data-pt="em breve" data-it="in arrivo">próximamente</span></div>
@@ -301,7 +312,7 @@
     <details><summary data-en="Does the community cost anything?" data-pt="A comunidade é paga?" data-it="La community costa qualcosa?">¿La comunidad cuesta?</summary><p data-en="No. It&#39;s free on Telegram. You join, read and ask." data-pt="Não. É grátis no Telegram. Você entra, lê e pergunta." data-it="No. È gratis su Telegram. Entri, leggi e fai domande.">No. Es gratis en Telegram. Entras, lees y preguntas.</p></details>
     <details><summary data-en="Do I need experience?" data-pt="Preciso de experiência?" data-it="Serve avere esperienza?">¿Necesito experiencia?</summary><p data-en="No. If you&#39;re starting from zero, start with the community before opening any account." data-pt="Não. Se está começando do zero, comece pela comunidade antes de abrir qualquer conta." data-it="No. Se parti da zero, inizia dalla community prima di aprire qualsiasi conto.">No. Si empiezas de cero, empieza por la comunidad antes de abrir cualquier cuenta.</p></details>
     <details><summary data-en="Pro or ECN account?" data-pt="Conta Pro ou ECN?" data-it="Conto Pro o ECN?">¿Cuenta Pro o ECN?</summary><p data-en="Pro if you&#39;re starting: no commission, the cost is in the spread. ECN if you trade high volume or scalp." data-pt="Pro se está começando: sem comissão, o custo está no spread. ECN se opera alto volume ou faz scalping." data-it="Pro se stai iniziando: senza commissioni, il costo è nello spread. ECN se fai alti volumi o scalping.">Pro si vas empezando: sin comisión, el costo va en el spread. ECN si operas mucho volumen o haces scalping.</p></details>
-    <details><summary data-en="What is a funding evaluation?" data-pt="O que é uma avaliação de financiamento?" data-it="Cos&#39;è una valutazione di finanziamento?">¿Qué es una evaluación de fondeo?</summary><p data-en="You pay a fee and trade an account with rules. If you meet them, the firm gives you capital to trade. If you don&#39;t pass, you lose the fee, not your savings." data-pt="Você paga uma taxa e opera uma conta com regras. Se cumprir, a empresa te dá capital para operar. Se não passar, perde a taxa, não suas economias." data-it="Paghi una quota e operi un conto con delle regole. Se le rispetti, la società ti dà capitale per operare. Se non passi, perdi la quota, non i tuoi risparmi.">Pagas una cuota y operas una cuenta con reglas. Si las cumples, la firma te da capital para operar. Si no pasas, pierdes la cuota, no tus ahorros.</p></details>
+    <details><summary data-en="What is a propfirm?" data-pt="O que é uma propfirm?" data-it="Cos&#39;è una propfirm?">¿Qué es una propfirm?</summary><p data-en="A firm that gives you capital to trade if you pass an evaluation. You pay a fee and trade with rules. If you meet them, you trade with their money. If not, you lose the fee, not your savings." data-pt="Uma empresa que te dá capital para operar se você passar numa avaliação. Você paga uma taxa e opera com regras. Se cumprir, opera com o dinheiro dela. Se não, perde a taxa, não suas economias." data-it="Una società che ti dà capitale per operare se superi una valutazione. Paghi una quota e operi con delle regole. Se le rispetti, operi con i suoi soldi. Altrimenti perdi la quota, non i tuoi risparmi.">Una empresa que te da capital para operar si pasas una evaluación. Pagas una cuota y operas con reglas. Si las cumples, operas con su dinero. Si no, pierdes la cuota, no tus ahorros.</p></details>
   </section>
 
   <button class="share" id="share" data-goatcounter-click="compartir" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><span id="share-txt" data-en="Send it to someone who trades" data-pt="Envie para alguém que também opera" data-it="Invialo a chi opera sui mercati">Mándaselo a alguien que opere</span></button>
