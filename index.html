@@ -79,8 +79,8 @@
     .grab{display:none;}
   }
   .sheet.dragging{transition:none;}
-  .live{display:inline;white-space:nowrap;}
-  .live i{display:inline-block;vertical-align:middle;margin:0 9px 5px 2px;width:11px;height:11px;border-radius:50%;background:#ff2d2d;box-shadow:0 0 0 0 rgba(255,45,45,.7);animation:pulse 1.4s ease-in-out infinite;}
+  .partners h2{display:flex;align-items:center;gap:12px;flex-wrap:nowrap;}.live{display:inline-flex;align-items:center;gap:7px;padding:5px 10px 5px 9px;border:1px solid rgba(255,45,45,.45);background:rgba(255,45,45,.1);border-radius:999px;}.live b{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#ff6b6b;line-height:1;}
+  .live i{display:block;width:8px;height:8px;border-radius:50%;background:#ff2d2d;box-shadow:0 0 0 0 rgba(255,45,45,.7);animation:pulse 1.4s ease-in-out infinite;}
   @keyframes pulse{0%{opacity:1;box-shadow:0 0 0 0 rgba(255,45,45,.6);}70%{opacity:.35;box-shadow:0 0 0 9px rgba(255,45,45,0);}100%{opacity:1;box-shadow:0 0 0 0 rgba(255,45,45,0);}}
   @media (prefers-reduced-motion:reduce){.live i{animation:none;}}
 </style>
@@ -127,7 +127,7 @@
 
   <section class="partners" id="partners">
     <div class="eyebrow">Partners</div>
-    <h2 data-en="Trade with me | <span class=&quot;live&quot;><i></i>Live</span>">Opera conmigo | <span class="live"><i></i>En Vivo</span></h2>
+    <h2><span data-en="Trade with me">Opera conmigo</span><span class="live"><i></i><b data-en="Live">En vivo</b></span></h2>
     <div class="rule"></div>
 
     <div class="card light">
