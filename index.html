@@ -35,7 +35,7 @@
   .partners{text-align:left;margin:8px 0 40px;}
   .eyebrow{display:flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;}
   .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--fg);box-shadow:0 0 8px rgba(255,255,255,.6);}
-  .partners h2{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:10px 0 12px;}
+  .partners h2{font-size:clamp(21px,6.2vw,30px);white-space:nowrap;font-weight:700;letter-spacing:-.02em;margin:10px 0 12px;}
   .rule{width:72px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--fg),transparent);margin-bottom:26px;}
   .card{border-radius:20px;padding:22px 20px 20px;margin-bottom:14px;}
   .card.light{background:#fff;color:#0a0a0a;}
@@ -79,6 +79,10 @@
     .grab{display:none;}
   }
   .sheet.dragging{transition:none;}
+  .live{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;}
+  .live i{width:11px;height:11px;border-radius:50%;background:#ff2d2d;box-shadow:0 0 0 0 rgba(255,45,45,.7);animation:pulse 1.4s ease-in-out infinite;}
+  @keyframes pulse{0%{opacity:1;box-shadow:0 0 0 0 rgba(255,45,45,.6);}70%{opacity:.35;box-shadow:0 0 0 9px rgba(255,45,45,0);}100%{opacity:1;box-shadow:0 0 0 0 rgba(255,45,45,0);}}
+  @media (prefers-reduced-motion:reduce){.live i{animation:none;}}
 </style>
 </head>
 <body>
@@ -123,7 +127,7 @@
 
   <section class="partners" id="partners">
     <div class="eyebrow">Partners</div>
-    <h2 data-en="Trade with me | Live">Opera conmigo | En Vivo</h2>
+    <h2 data-en="Trade with me | <span class=&quot;live&quot;><i></i>Live</span>">Opera conmigo | <span class="live"><i></i>En Vivo</span></h2>
     <div class="rule"></div>
 
     <div class="card light">
