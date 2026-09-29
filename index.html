@@ -59,9 +59,37 @@
   footer{color:#4a4a4a;font-size:11.5px;}
   #rain{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.22;}
   .wrap{position:relative;z-index:1;}
+  .sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:10;opacity:0;pointer-events:none;transition:opacity .25s;}
+  .sheet{position:fixed;left:0;right:0;bottom:0;z-index:11;max-width:460px;margin:0 auto;background:#111;border:1px solid #2a2a2a;border-bottom:0;border-radius:22px 22px 0 0;padding:14px 20px 28px;transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1);text-align:left;}
+  .sheet.open{transform:none;} .sheet-bg.open{opacity:1;pointer-events:auto;}
+  .grab{width:40px;height:4px;border-radius:4px;background:#3a3a3a;margin:0 auto 16px;}
+  .sheet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .sheet-head h3{margin:0;font-size:19px;font-weight:700;}
+  .x{background:none;border:0;color:#8a8a8a;font-size:26px;line-height:1;cursor:pointer;padding:0 4px;}
+  .sheet-sub{color:#8a8a8a;font-size:13.5px;margin:0 0 16px;}
+  .opt{display:block;text-decoration:none;color:#f4f4f4;border:1px solid #2a2a2a;border-radius:16px;padding:16px 16px 14px;margin-bottom:10px;background:#0c0c0c;}
+  .opt-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .opt-name{font-size:16.5px;font-weight:700;} .opt-go{font-size:13px;font-weight:600;background:#f4f4f4;color:#0a0a0a;padding:7px 12px;border-radius:10px;}
+  .opt p{margin:0;font-size:13.5px;line-height:1.5;color:#b5b5b5;}
+  .sheet-fine{font-size:11.5px;color:#6a6a6a;margin:8px 2px 0;}
 </style>
 </head>
 <body>
+<div class="sheet-bg" id="sheet-bg"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="grab"></div>
+  <div class="sheet-head"><h3 id="sheet-title" data-en="Choose your FPG account">Elige tu cuenta FPG</h3><button class="x" id="close-fpg" aria-label="Cerrar">×</button></div>
+  <p class="sheet-sub" data-en="Two ways to trade. The difference is how you pay for each trade.">Dos formas de operar. La diferencia es cómo pagas cada operación.</p>
+  <a class="opt" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2H" target="_blank" rel="noopener sponsored">
+    <div class="opt-top"><span class="opt-name" data-en="Pro Account">Cuenta Pro</span><span class="opt-go" data-en="Open ›">Abrir ›</span></div>
+    <p data-en="No commission: the cost is built into the spread. Simpler, good to start.">Sin comisión: el costo va incluido en el spread. Más simple, buena para empezar.</p>
+  </a>
+  <a class="opt" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2I" target="_blank" rel="noopener sponsored">
+    <div class="opt-top"><span class="opt-name" data-en="ECN Account">Cuenta ECN</span><span class="opt-go" data-en="Open ›">Abrir ›</span></div>
+    <p data-en="Spreads from 0 plus a commission per trade. For high volume or scalping.">Spread desde 0 más una comisión por operación. Para mucho volumen o scalping.</p>
+  </a>
+  <p class="sheet-fine" data-en="Exact conditions are shown on the FPG portal.">Las condiciones exactas las ves en el portal de FPG.</p>
+</div>
 <canvas id="rain" aria-hidden="true"></canvas>
 <div class="wrap">
 
@@ -99,7 +127,7 @@
         <img src="img/acmilan.png" alt="AC Milan">
         <span data-en="FPG is <strong>Official Online Trading Partner</strong> of AC Milan">FPG es <strong>Official Online Trading Partner</strong> de AC Milan</span>
       </div>
-      <a class="cta" href="https://portal.fortuneprime.com/getview?view=register&amp;token=3fRA2H" target="_blank" rel="noopener sponsored" data-en="Open account ›">Abrir cuenta ›</a>
+      <a class="cta" href="#fpg" id="open-fpg" data-en="Open account ›">Abrir cuenta ›</a>
     </div>
 
     <div class="card dark">
@@ -143,6 +171,14 @@ x.fillText(chars[Math.floor(Math.random()*chars.length)],i*fs,y);
 if(y>innerHeight&&Math.random()>0.975)drops[i]=0;drops[i]++;}}
 requestAnimationFrame(draw);
 })();
+</script>
+<script>
+(function(){var sh=document.getElementById("sheet"),bg=document.getElementById("sheet-bg");
+function o(e){if(e)e.preventDefault();sh.classList.add("open");bg.classList.add("open");}
+function c(){sh.classList.remove("open");bg.classList.remove("open");}
+document.getElementById("open-fpg").addEventListener("click",o);
+document.getElementById("close-fpg").addEventListener("click",c);bg.addEventListener("click",c);
+addEventListener("keydown",function(e){if(e.key==="Escape")c();});})();
 </script>
 </body>
 </html>
