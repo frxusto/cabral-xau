@@ -220,6 +220,18 @@
   .quick a:hover{color:#fff;border-color:#555;}
   .quick i{width:7px;height:7px;border-radius:50%;background:#ff2d2d;animation:pulse 1.4s ease-in-out infinite;}
   .faq{scroll-margin-top:24px;} .session{scroll-margin-top:24px;}
+  .clock{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 4px;}
+  .cell{text-align:center;}
+  .num{background:linear-gradient(180deg,#1b1b1b 0 50%,#141414 50%);border:1px solid #2a2a2a;border-radius:10px;padding:9px 0 8px;overflow:hidden;position:relative;}
+  .num::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#0a0a0a;}
+  .num b{display:block;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:#ff4d4d;}
+  .num.roll b{animation:roll .35s cubic-bezier(.2,.8,.2,1);}
+  @keyframes roll{from{transform:translateY(-60%);opacity:0}to{transform:none;opacity:1}}
+  .cell small{display:block;margin-top:5px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#777;}
+  button.session-cta{width:100%;font:inherit;font-size:15px;font-weight:700;cursor:pointer;}
+  .session-alt{display:block;text-align:center;margin-top:11px;font-size:13px;color:#8a8a8a;text-decoration:none;}
+  .session-alt:hover{color:#fff;}
+  @media (prefers-reduced-motion:reduce){.num.roll b{animation:none;}}
 </style>
 <script data-goatcounter="https://fraustocabral.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -286,13 +298,15 @@
   <section class="session" id="sesion">
     <div class="eyebrow live" id="live"><i></i><b id="live-txt" data-en="Live" data-pt="Ao vivo" data-it="In diretta">En vivo</b></div>
     <h2 data-en="Trade with me, live" data-pt="Opere comigo, ao vivo" data-it="Opera con me, in diretta">Opera conmigo en vivo</h2>
-    <p class="session-p" data-en="You see how I read the market and make decisions in real time. Free, inside the community." data-pt="Você vê como leio o mercado e tomo decisões em tempo real. Grátis, dentro da comunidade." data-it="Vedi come leggo il mercato e prendo decisioni in tempo reale. Gratis, dentro la community.">Ves cómo leo el mercado y tomo decisiones en tiempo real. Gratis, dentro de la comunidad.</p>
+    <p class="session-p" data-en="You see how I read the market and make decisions in real time. Open to the community for now." data-pt="Você vê como leio o mercado e tomo decisões em tempo real. Por enquanto, aberto à comunidade." data-it="Vedi come leggo il mercato e prendo decisioni in tempo reale. Per ora aperto alla community.">Ves cómo leo el mercado y tomo decisiones en tiempo real. Por ahora, abierto a la comunidad.</p>
     <div class="slot">
-      <div class="slot-main"><span id="slot-day"></span><span id="slot-cd"></span></div>
+      <div class="slot-main"><span id="slot-day"></span></div>
+      <div class="clock" id="clock" aria-live="off"></div>
       <div class="slot-days" id="slot-days"></div>
       <div class="slot-note" data-en="Shown in your local time" data-pt="No seu horário local" data-it="Nel tuo orario locale">En la hora de tu dispositivo</div>
     </div>
-    <a class="session-cta" data-goatcounter-click="telegram-sesion" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span data-en="Notify me when it starts" data-pt="Me avise quando começar" data-it="Avvisami quando inizia">Avísame cuando empiece</span></a>
+    <button type="button" class="session-cta" id="cal" data-goatcounter-click="calendario"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M12 13v5M9.5 15.5h5"/></svg><span data-en="Add to my calendar" data-pt="Adicionar à minha agenda" data-it="Aggiungi al mio calendario">Agregar a mi calendario</span></button>
+    <a class="session-alt" data-goatcounter-click="telegram-sesion" href="https://t.me/+jMsoFB4hjyw4MTI0" target="_blank" rel="noopener"><span data-en="or get the reminder on Telegram" data-pt="ou receba o lembrete no Telegram" data-it="o ricevi il promemoria su Telegram">o recibe el aviso en Telegram</span> →</a>
   </section>
 
   <section class="partners" id="partners">
@@ -396,10 +410,10 @@ els.forEach(function(e){io.observe(e);});})();
 </script>
 <script>
 (function(){var L=(document.documentElement.lang||"es").slice(0,2);
-var D={es:["Próxima sesión","","","Link copiado ✓","es-MX","hoy","mañana","en","Ahora mismo · en vivo"],
-en:["Next session","","","Link copied ✓","en-US","today","tomorrow","in","Right now · live"],
-pt:["Próxima sessão","","","Link copiado ✓","pt-BR","hoje","amanhã","em","Agora mesmo · ao vivo"],
-it:["Prossima sessione","","","Link copiato ✓","it-IT","oggi","domani","tra","Proprio ora · in diretta"]}[L]||["Next session","","","Link copied ✓","en-US","today","tomorrow","in","Right now · live"];
+var D={es:["Próxima sesión","","","Link copiado ✓","es-MX","hoy","mañana","en","Ahora mismo · en vivo",["días","horas","min","seg"],"Sesión en vivo · Frausto Cabral","Opera conmigo en vivo. El link llega a la comunidad:"],
+en:["Next session","","","Link copied ✓","en-US","today","tomorrow","in","Right now · live",["days","hours","min","sec"],"Live session · Frausto Cabral","Trade with me live. The link goes to the community:"],
+pt:["Próxima sessão","","","Link copiado ✓","pt-BR","hoje","amanhã","em","Agora mesmo · ao vivo",["dias","horas","min","seg"],"Sessão ao vivo · Frausto Cabral","Opere comigo ao vivo. O link chega na comunidade:"],
+it:["Prossima sessione","","","Link copiato ✓","it-IT","oggi","domani","tra","Proprio ora · in diretta",["giorni","ore","min","sec"],"Sessione in diretta · Frausto Cabral","Opera con me in diretta. Il link arriva nella community:"]}[L]||["Next session","","","Link copied ✓","en-US","today","tomorrow","in","Right now · live",["days","hours","min","sec"],"Live session · Frausto Cabral","Trade with me live. The link goes to the community:"];
 /* Sesiones (hora CDMX, UTC-6 fijo): dom 20h, mar 20h, jue 21h. Duran 2 h. */
 var SES={0:20,2:20,4:21},OFF=6*3600e3,DUR=2*3600e3,now=Date.now(),c=new Date(now-OFF),live=false,nxt=null,all=[];
 for(var k=-1;k<8;k++){var dd=new Date(Date.UTC(c.getUTCFullYear(),c.getUTCMonth(),c.getUTCDate()+k)),dw=dd.getUTCDay();
@@ -412,8 +426,27 @@ return n===0?D[5]:n===1?D[6]:new Date(t).toLocaleDateString(D[4],{weekday:"long"
 var ups=[];for(var j=0;j<9&&ups.length<3;j++){var d2=new Date(Date.UTC(c.getUTCFullYear(),c.getUTCMonth(),c.getUTCDate()+j)),w2=d2.getUTCDay();if(w2 in SES){var s2=d2.getTime()+OFF+SES[w2]*3600e3;if(s2+DUR>now)ups.push(s2);}}
 function cd(ms){var m=Math.round(ms/6e4),d=Math.floor(m/1440),h=Math.floor(m%1440/60),mi=m%60;return D[7]+" "+(d?d+" d "+h+" h":h?h+" h "+mi+" min":mi+" min");}
 var sd=document.getElementById("slot-day"),sc=document.getElementById("slot-cd");
-if(live){sd.textContent=D[8];sc.textContent="";}
-else if(nxt){lv.classList.add("off");lt.textContent=D[0];sd.textContent=dia(nxt).replace(/^./,function(x){return x.toUpperCase();})+" · "+hm(nxt);sc.textContent=cd(nxt-now);}
+var ck=document.getElementById("clock");
+if(live){sd.textContent=D[8];ck.style.display="none";}
+else if(nxt){lv.classList.add("off");lt.textContent=D[0];sd.textContent=dia(nxt).replace(/^./,function(x){return x.toUpperCase();})+" · "+hm(nxt);
+  var U=D[9],cells=[];ck.innerHTML=U.map(function(u,i){return '<div class="cell"><div class="num"><b>00</b></div><small>'+u+'</small></div>';}).join("");
+  cells=ck.querySelectorAll(".num");
+  var tick=function(){var r=Math.max(0,nxt-Date.now());if(r===0){location.reload();return;}
+    var v=[Math.floor(r/864e5),Math.floor(r%864e5/36e5),Math.floor(r%36e5/6e4),Math.floor(r%6e4/1e3)];
+    v.forEach(function(n,i){var t=(n<10?"0":"")+n,el=cells[i],b=el.querySelector("b");if(b.textContent!==t){el.classList.remove("roll");void el.offsetWidth;b.textContent=t;el.classList.add("roll");}});};
+  tick();setInterval(tick,1000);}
+/* calendario: .ics con las 3 sesiones semanales (se repiten cada semana) */
+document.getElementById("cal").addEventListener("click",function(){
+  var z=function(t){return new Date(t).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");},L2=[],first=ups.filter(function(t){return t>Date.now();});
+  if(first.length<3)first=ups;
+  L2.push("BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Frausto Cabral//Sesiones//ES","CALSCALE:GREGORIAN");
+  first.forEach(function(t,i){L2.push("BEGIN:VEVENT","UID:sesion-"+i+"-fraustocabral","DTSTAMP:"+z(Date.now()),"DTSTART:"+z(t),"DURATION:PT2H","RRULE:FREQ=WEEKLY",
+    "SUMMARY:"+D[10],"DESCRIPTION:"+D[11]+" https://t.me/+jMsoFB4hjyw4MTI0","URL:https://t.me/+jMsoFB4hjyw4MTI0",
+    "BEGIN:VALARM","TRIGGER:-PT10M","ACTION:DISPLAY","DESCRIPTION:"+D[10],"END:VALARM","END:VEVENT");});
+  L2.push("END:VCALENDAR");
+  var blob=new Blob([L2.join("\r\n")],{type:"text/calendar;charset=utf-8"}),a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download="sesiones-frausto-cabral.ics";document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},1500);});
 document.getElementById("slot-days").innerHTML=ups.map(function(t){return '<span'+(t===nxt||(live&&t<=now)?' class="on"':'')+'>'+new Date(t).toLocaleDateString(D[4],{weekday:"short"}).replace(".","")+" "+hm(t)+'</span>';}).join("");
 /* camino: soy nuevo / ya opero */
 var P="new";try{P=localStorage.getItem("path")||"new";}catch(e){}
